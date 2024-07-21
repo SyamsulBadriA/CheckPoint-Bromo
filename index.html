@@ -82,6 +82,7 @@
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-5">Finish </td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-6">Rank</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-7">Status</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-7">Amount of Time</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -114,6 +115,7 @@
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-42">Finish </td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-43">Rank</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-44">Status</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-44">Amount of Time</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -246,6 +248,7 @@
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.finish_1)}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${ordinalSuffix(index + 1)}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.status}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.AOT1 ? item.AOT1 : ''}</td>
                                     </tr>
                                 `;
                                 table11.innerHTML += row;
@@ -261,6 +264,7 @@
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.finish)}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${ordinalSuffix(index + 1)}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.status}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.AOT ? item.AOT : ''}</td>
                                     </tr>
                                 `;
                                 table21.innerHTML += row;
