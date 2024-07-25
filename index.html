@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>Home</title>
+    <title>Bromo Tengger</title>
     <link rel="stylesheet" href="nicepage.css" media="screen">
     <link rel="stylesheet" href="Home.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery-1.9.1.min.js" defer=""></script>
@@ -41,6 +41,23 @@
         .u-tab-link:hover {
             background-color: #004e72; /* Darker blue color on hover */
         }
+           /* Style for the "Export Excel" button */
+    .export-excel-btn {
+        background-color: red; /* Red background */
+        color: white; /* White text */
+        border: none; /* Remove border */
+        padding: 10px 20px; /* Padding for button size */
+        font-size: 16px; /* Font size */
+        cursor: pointer; /* Pointer cursor on hover */
+        position: absolute; /* Absolute positioning */
+        top: 10px; /* Distance from the top */
+        right: 10px; /* Distance from the right */
+        border-radius: 5px; /* Rounded corners */
+    }
+
+    .export-excel-btn:hover {
+        background-color: darkred; /* Darker red on hover */
+    }
     </style>
 </head>
 <body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="en">
@@ -58,6 +75,7 @@
                 <li class="u-tab-item" role="presentation">
                     <a class="u-tab-link" id="link-tab-fab0" href="#tab-fab0" role="tab" aria-controls="tab-fab0" aria-selected="false">21KM</a>
                 </li>
+                <button class="export-excel-btn" onclick="window.location.href='./Contact.html'">Export Excel</button>
             </ul>
             <div class="u-tab-content">
                 <div class="u-container-style u-tab-pane" id="tab-0da5" role="tabpanel" aria-labelledby="link-tab-0da5">
