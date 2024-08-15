@@ -100,6 +100,7 @@
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-5">Finish </td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-7">Amount of Time</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-6">Rank</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-6">Gender Rank</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-7">Status</td>
                                     </tr>
                                 </tbody>
@@ -133,6 +134,7 @@
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-42">Finish </td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-44">Amount of Time</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-43">Rank</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-6">Gender Rank</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell u-table-cell-44">Status</td>
                                     </tr>
                                 </tbody>
@@ -210,7 +212,7 @@
             });
 
             // Fetch and display data
-            fetch('https://detrac.id/checkoutcaldera/tbl_bib_brm.php')
+            fetch('https://detrac.id/checkoutcaldera/tbl_bib_brm_new.php')
                 .then(response => response.json())
                 .then(data => {
                     const table11 = document.getElementById('table11').getElementsByTagName('tbody')[0];
@@ -262,10 +264,11 @@
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.no_bib}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.name}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.gender}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.ws_1_1)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.finish_1)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.AOT1 ? item.AOT1 : ''}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${ordinalSuffix(index + 1)}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.ws_1}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.finish}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Amount_of_Time ? item.Amount_of_Time : ''}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Overall_Rank}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Gender_Rank}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.status}</td>
                                     </tr>
                                 `;
@@ -276,12 +279,13 @@
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.no_bib}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.name}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.gender}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.ws_1)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.ws_2)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.ws_3)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.finish)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.AOT ? item.AOT : ''}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${ordinalSuffix(index + 1)}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.ws_1}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.ws_2}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.ws_3}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.finish}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Amount_of_Time ? item.Amount_of_Time : ''}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Overall_Rank}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Gender_Rank}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.status}</td>
                                     </tr>
                                 `;
@@ -297,9 +301,9 @@
                 .catch(error => console.error('Error fetching data:', error));
 
             // Auto-refresh every 5 seconds
-            setTimeout(function() {
-                location.reload();
-            }, 30000);
+            // setTimeout(function() {
+            //     location.reload();
+            // }, 30000);
         });
     </script>
 </body>

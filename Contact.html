@@ -20,6 +20,7 @@
                             <th class="u-border-1 u-border-grey-dark-1 u-table-cell">Finish</th>
                             <th class="u-border-1 u-border-grey-dark-1 u-table-cell">Amount of Time</th>
                             <th class="u-border-1 u-border-grey-dark-1 u-table-cell">Rank</th>
+                            <th class="u-border-1 u-border-grey-dark-1 u-table-cell">Gender Rank</th>
                             <th class="u-border-1 u-border-grey-dark-1 u-table-cell">Status</th>
                         </tr>
                     </thead>
@@ -39,6 +40,7 @@
                             <th class="u-border-1 u-border-grey-dark-1 u-table-cell">Finish</th>
                             <th class="u-border-1 u-border-grey-dark-1 u-table-cell">Amount of Time</th>
                             <th class="u-border-1 u-border-grey-dark-1 u-table-cell">Rank</th>
+                            <th class="u-border-1 u-border-grey-dark-1 u-table-cell">Gender Rank</th>
                             <th class="u-border-1 u-border-grey-dark-1 u-table-cell">Status</th>
                         </tr>
                     </thead>
@@ -51,7 +53,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             let fetchedData = [];
 
-            fetch('https://detrac.id/checkoutcaldera/tbl_bib_brm.php')
+            fetch('https://detrac.id/checkoutcaldera/tbl_bib_brm_new.php')
                 .then(response => response.json())
                 .then(data => {
                     fetchedData = data;
@@ -64,22 +66,7 @@
                         return date.toTimeString().split(' ')[0];
                     };
 
-                    const ordinalSuffix = (num) => {
-                        if (num == null || num === 'null') return '1st';
-                        num = parseInt(num, 10);
-                        if (isNaN(num)) return 'N/A';
-
-                        let suffix = 'th';
-                        if (num % 10 === 1 && num % 100 !== 11) {
-                            suffix = 'st';
-                        } else if (num % 10 === 2 && num % 100 !== 12) {
-                            suffix = 'nd';
-                        } else if (num % 10 === 3 && num % 100 !== 13) {
-                            suffix = 'rd';
-                        }
-                        return num + suffix;
-                    };
-
+                   
                     const categories = {
                         '11_km': [],
                         '21_km': []
@@ -101,10 +88,11 @@
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.no_bib}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.name}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.gender}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.ws_1_1)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.finish_1)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.AOT1 ? item.AOT1 : ''}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${ordinalSuffix(index + 1)}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.ws_1}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.finish_1}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Amount_of_Time ? item.Amount_of_Time : ''}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Overall_Rank}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Gender_Rank}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.status}</td>
                                     </tr>
                                 `;
@@ -115,12 +103,13 @@
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.no_bib}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.name}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.gender}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.ws_1)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.ws_2)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.ws_3)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${formatTime(item.finish)}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.AOT ? item.AOT : ''}</td>
-                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${ordinalSuffix(index + 1)}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.ws_1}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.ws_2}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.ws_3}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.finish}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Amount_of_Time}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Overall_Rank}</td>
+                                        <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.Gender_Rank}</td>
                                         <td class="u-border-1 u-border-grey-dark-1 u-table-cell">${item.status}</td>
                                     </tr>
                                 `;
@@ -145,7 +134,8 @@
                         Finish: cells[4].innerText,
                         'Amount of Time': cells[5].innerText,
                         Rank: cells[6].innerText,
-                        Status: cells[7].innerText
+                        Gender_Rank: cells[7].innerText,
+                        Status: cells[8].innerText
                     };
                 });
 
@@ -161,7 +151,8 @@
                         Finish: cells[6].innerText,
                         'Amount of Time': cells[7].innerText,
                         Rank: cells[8].innerText,
-                        Status: cells[9].innerText
+                        Gender_Rank: cells[9].innerText,
+                        Status: cells[10].innerText
                     };
                 });
 
@@ -179,9 +170,9 @@
             setTimeout(exportExcel, 1000); // Adjust the delay if necessary
 
             // Redirect to the index page after a short delay to ensure download starts
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 2000); // Adjust the delay if necessary
+            // setTimeout(() => {
+            //     window.location.href = 'index.html';
+            // }, 2000); // Adjust the delay if necessary
         });
     </script>
 </body>
